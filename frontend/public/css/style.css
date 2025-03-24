@@ -1,0 +1,41 @@
+.pricingbox{
+    display: inline-block !important;
+    
+}
+.navbar-nav li:hover{
+    color: blue;
+}
+a{
+    text-decoration: none;
+}
+.items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px ;
+}
+.items a{
+    color: black;
+    font-size: 12px;
+    font-weight: 500;
+}
+.items a:hover{
+    color:rgb(59, 119, 232)
+}
+.icons i{
+    font-size: 20px;
+}
+.icons i:hover{
+    color: rgb(59, 119, 232);
+    
+}
+.footer a{
+    display: block;
+    color: black;
+    padding: 3px;
+    font-weight: 300;
+    font-size: 18px;
+}
+.footer a:hover{
+    color: rgb(59, 119, 232);
+}
