@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Button from '@mui/material/Button';
 const Funds = () => {
   return (
     <>
       <div className="funds">
         <p>Instant, zero-cost fund transfers with UPI </p>
-        <Link className="btn btn-green">Add funds</Link>
-        <Link className="btn btn-blue">Withdraw</Link>
+        <Link className="mx-3"><Button variant="contained" color="success">
+          Add Funds
+        </Button></Link>
+        <Link><Button variant="contained" color="error">Withdraw</Button></Link>
       </div>
 
       <div className="row">
@@ -77,7 +79,7 @@ const Funds = () => {
         <div className="col">
           <div className="commodity">
             <p>You don't have a commodity account</p>
-            <Link className="btn btn-blue">Open Account</Link>
+            <Link><Button variant="contained">Open Account</Button></Link>
           </div>
         </div>
       </div>
