@@ -1,7 +1,17 @@
-import React from "react";
-import { holdings } from "../data/data";
+import React, { useEffect, useState } from "react";
+import axios from "axios"
 
 const Holdings = () => {
+ const [holdings,setholdings]=useState([])
+ useEffect(()=>{
+    
+    axios.get("http://localhost:5000/holding").then((res)=>{
+      // console.log(res.data)
+      setholdings(res.data)
+    })
+   
+ },[])
+
   const total=holdings
   .reduce((res,stock)=>(res=res+stock.price*stock.qty),0)
   .toFixed(2)
@@ -13,7 +23,7 @@ const Holdings = () => {
     /
     holdings
     .reduce((res,stock)=>(res=res+stock.avg*stock.qty),0)).toFixed(5)*100
-  console.log(total)
+  // console.log(total)
   return (
     <>
       <h3 className="title">Holdings({holdings.length})</h3>

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { watchlist } from "../data/data";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardControlKeyIcon from '@mui/icons-material/KeyboardControlKey';
 import {Tooltip,Grow} from "@mui/material"
 import BarChartIcon from '@mui/icons-material/BarChart';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import generalcontext from "./Genrealcontext"
 
 const WatchList = () => {
   return (
@@ -49,13 +50,16 @@ const Watchlistitem=({stock})=>{
         </span>
       </div>
     </div>
-    {selecteditem && <WatchListactions/>}
+    {selecteditem && <WatchListactions uid={stock.name}/>}
 
   </li>
  )
 }
 
 const WatchListactions=({uid})=>{
+  const {isbuy}=useContext(generalcontext)
+  console.log(isbuy);
+  
   return (
     <div className="actions">
     <span>
