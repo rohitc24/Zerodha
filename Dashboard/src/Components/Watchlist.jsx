@@ -57,8 +57,10 @@ const Watchlistitem=({stock})=>{
 }
 
 const WatchListactions=({uid})=>{
-  const {isbuy}=useContext(generalcontext)
-  console.log(isbuy);
+  const {windowopen}=useContext(generalcontext);
+  const handleclick=()=>{
+    windowopen(uid)
+  }
   
   return (
     <div className="actions">
@@ -67,6 +69,7 @@ const WatchListactions=({uid})=>{
       title="Buy(B)"
       placement="top"
       arrowTransitionComponent={Grow}
+      onClick={handleclick}
       >
         <button className="buy">
           Buy
