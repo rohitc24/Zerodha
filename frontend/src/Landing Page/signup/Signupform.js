@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 import axios from "axios"
 import { TextField, Button, } from "@mui/material"
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 function Signupform() {
-    let [formdata,setformdata]=useState({email:"",username:"",password:""})
-    let navigate=useNavigate()
-    const handlechange=(e)=>{
-        setformdata({...formdata,[e.target.name]:e.target.value})
+    let [formdata, setformdata] = useState({ email: "", username: "", password: "" })
+    const handlechange = (e) => {
+        setformdata({ ...formdata, [e.target.name]: e.target.value })
     }
-    const handlesubmit= async (e)=>{
+    const handlesubmit = async (e) => {
         e.preventDefault();
         // console.log(formdata)
-        await axios.post("http://localhost:5000/signup",formdata)
-        .then((res)=>console.log(res.data))
-        .catch((e)=>console.log(e))
-        window.location.href = "http://localhost:5173/dashboard"
+        await axios.post("http://localhost:5000/signup", formdata)
+            .then((res) => {
+                console.log(res.data.newuser)
+               if(res.data.success==true){
+                 window.location.href = "http://localhost:5173/dashboard"
+               }
+                
+            }
+            )
+            .catch((e) => console.log(e))
+        
 
     }
 
@@ -36,8 +42,12 @@ function Signupform() {
                         <Button variant="contained" className='mt-5' type='submit'>Signup</Button>
 
                     </form>
+                    <Link to="/login" className='mt-2' type='button'>Login</Link>
                 </div>
+
+
             </div>
+
         </div>
     );
 }

@@ -12,6 +12,7 @@ import WatchList from "./Watchlist";
 import GenrealcontextProvider from "./Generalcontextprovider"
 
 const Dashboard = () => {
+  
   return (
     <div className="dashboard-container">
       <GenrealcontextProvider>
